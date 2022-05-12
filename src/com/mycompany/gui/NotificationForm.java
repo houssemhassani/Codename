@@ -38,16 +38,16 @@ import com.codename1.ui.util.Resources;
  *
  * @author Shai Almog
  */
-public class BaseForm extends Form {
+public class NotificationForm extends Form {
 
-    public BaseForm() {
+    public NotificationForm() {
     }
 
-    public BaseForm(Layout contentPaneLayout) {
+    public NotificationForm(Layout contentPaneLayout) {
         super(contentPaneLayout);
     }
 
-    public BaseForm(String title, Layout contentPaneLayout) {
+    public NotificationForm(String title, Layout contentPaneLayout) {
         super(title, contentPaneLayout);
     }
     

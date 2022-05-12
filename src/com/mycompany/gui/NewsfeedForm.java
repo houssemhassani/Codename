@@ -48,7 +48,7 @@ import com.codename1.ui.util.Resources;
  *
  * @author Shai Almog
  */
-public class NewsfeedForm extends BaseForm {
+public class NewsfeedForm extends NotificationForm {
 
     public NewsfeedForm(Resources res) {
         super("Newsfeed", BoxLayout.y());

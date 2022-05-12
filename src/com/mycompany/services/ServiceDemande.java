@@ -89,8 +89,9 @@ public class ServiceDemande {
                     for(Map<String, Object> obj : listOfMaps) {
                         Demande re = new Demande();
                         
-                        //dima id fi codename one float 5outhouha
+                        //dima id fi codename one float 
                         float id = Float.parseFloat(obj.get("id").toString());
+                        System.out.println("++++++"+id);
                         
                         float num = Float.parseFloat(obj.get("numDemande").toString());
                         
@@ -118,7 +119,7 @@ public class ServiceDemande {
             }
         });
         
-      NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
+      NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request 
 
         return result;
         

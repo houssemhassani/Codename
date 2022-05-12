@@ -41,7 +41,7 @@ import java.util.Date;
  *
  * @author hamza
  */
-public class AjoutDemandeForm extends BaseForm{
+public class AjoutDemandeForm extends NotificationForm{
     Form current;
 
     public AjoutDemandeForm(Resources res) {

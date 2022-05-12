@@ -42,7 +42,7 @@ import com.mycompany.utils.ApiSms;
  *
  * @author Shai Almog
  */
-public class ProfileForm extends BaseForm {
+public class ProfileForm extends NotificationForm {
 
     public ProfileForm(Resources res) {
         super("Newsfeed", BoxLayout.y());

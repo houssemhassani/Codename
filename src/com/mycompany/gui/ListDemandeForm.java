@@ -46,7 +46,7 @@ import java.util.ArrayList;
  *
  * @author hamza
  */
-public class ListDemandeForm extends BaseForm{
+public class ListDemandeForm extends NotificationForm{
 
     Form current;
     public ListDemandeForm(Resources res) {  super("Newsfeed",BoxLayout.y()); //herigate men Newsfeed w l formulaire vertical
@@ -162,7 +162,7 @@ public class ListDemandeForm extends BaseForm{
         ArrayList<Demande>list = ServiceDemande.getInstance().affichageDemande();
         
         for(Demande rec : list ) {
-             String urlImage ="ttt.jpg";//image statique pour le moment ba3d taw fi  videos jayin nwarikom image 
+             String urlImage ="ttt.jpg";
             
              Image placeHolder = Image.createImage(120, 90);
              EncodedImage enc =  EncodedImage.createFromImage(placeHolder,false);
@@ -254,7 +254,7 @@ public class ListDemandeForm extends BaseForm{
         Container cnt = BorderLayout.west(image);
         
         
-        //kif nzidouh  ly3endo date mathbih fi codenamone y3adih string w y5alih f symfony dateTime w ytab3ni cha3mlt taw yjih
+        
         Label numTxt = new Label("NumDemande : "+rec.getNumDemande(),"NewsTopLine2");
         Label typeTxt = new Label("Type : "+rec.getTypeDemande(),"NewsTopLine2");
         Label etatTxt = new Label("Etat : "+rec.getEtat(),"NewsTopLine2" );
