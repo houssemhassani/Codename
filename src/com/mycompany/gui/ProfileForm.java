@@ -20,6 +20,7 @@
 package com.mycompany.gui;
 
 import com.codename1.components.ScaleImageLabel;
+import com.codename1.ui.Button;
 import com.codename1.ui.CheckBox;
 import com.codename1.ui.Component;
 import com.codename1.ui.Display;
@@ -34,6 +35,7 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
+import com.mycompany.utils.ApiSms;
 
 /**
  * The user profile form
@@ -47,7 +49,7 @@ public class ProfileForm extends BaseForm {
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
         getTitleArea().setUIID("Container");
-        setTitle("Profile");
+        setTitle("Notification");
         getContentPane().setScrollVisible(false);
         
         super.addSideMenu(res);
@@ -63,34 +65,35 @@ public class ProfileForm extends BaseForm {
         sl.setUIID("BottomPad");
         sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
 
-        Label facebook = new Label("786 followers", res.getImage("facebook-logo.png"), "BottomPad");
-        Label twitter = new Label("486 followers", res.getImage("twitter-logo.png"), "BottomPad");
-        facebook.setTextPosition(BOTTOM);
-        twitter.setTextPosition(BOTTOM);
+       // Label facebook = new Label("786 followers", res.getImage("facebook-logo.png"), "BottomPad");
+        //Label twitter = new Label("486 followers", res.getImage("twitter-logo.png"), "BottomPad");
+        //facebook.setTextPosition(BOTTOM);
+        //twitter.setTextPosition(BOTTOM);
         
         add(LayeredLayout.encloseIn(
                 sl,
                 BorderLayout.south(
                     GridLayout.encloseIn(3, 
-                            facebook,
+                           
                             FlowLayout.encloseCenter(
-                                new Label(res.getImage("profile-pic.jpg"), "PictureWhiteBackgrond")),
-                            twitter
+                                )
                     )
                 )
         ));
 
-        TextField username = new TextField("sandeep");
-        username.setUIID("TextFieldBlack");
-        addStringValue("Username", username);
+        TextField num_tel = new TextField("","Numéro téléphone",8,TextField.ANY);
+        num_tel.setUIID("TextFieldBlack");
+        addStringValue("Numéro téléphone", num_tel);
 
-        TextField email = new TextField("sandeep@gmail.com", "E-Mail", 20, TextField.EMAILADDR);
-        email.setUIID("TextFieldBlack");
-        addStringValue("E-Mail", email);
+        TextField message = new TextField("", "Message",20, TextField.ANY);
+        message.setUIID("TextFieldBlack");
+        addStringValue("Message", message);
+        Button btnAjouter = new Button("Notifier");
+        addStringValue("", btnAjouter);
         
-        TextField password = new TextField("sandeep", "Password", 20, TextField.PASSWORD);
-        password.setUIID("TextFieldBlack");
-        addStringValue("Password", password);
+//        TextField password = new TextField("sandeep", "Password", 20, TextField.PASSWORD);
+//        password.setUIID("TextFieldBlack");
+//        addStringValue("Password", password);
 
         CheckBox cb1 = CheckBox.createToggle(res.getImage("on-off-off.png"));
         cb1.setUIID("Label");
@@ -98,9 +101,14 @@ public class ProfileForm extends BaseForm {
         CheckBox cb2 = CheckBox.createToggle(res.getImage("on-off-off.png"));
         cb2.setUIID("Label");
         cb2.setPressedIcon(res.getImage("on-off-on.png"));
+        btnAjouter.addActionListener(e->{
+            ApiSms ap=new ApiSms();
+            ap.sms(num_tel.getText().toString(), message.getText().toString());
+            new ListDemandeForm(res).show();
+        });
         
-        addStringValue("Facebook", FlowLayout.encloseRightMiddle(cb1));
-        addStringValue("Twitter", FlowLayout.encloseRightMiddle(cb2));
+//        addStringValue("Facebook", FlowLayout.encloseRightMiddle(cb1));
+//        addStringValue("Twitter", FlowLayout.encloseRightMiddle(cb2));
     }
     
     private void addStringValue(String s, Component v) {

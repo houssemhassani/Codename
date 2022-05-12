@@ -32,6 +32,7 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.mycompany.entities.Demande;
 import com.mycompany.services.ServiceDemande;
+import com.mycompany.utils.ApiSms;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -185,6 +186,7 @@ public class AjoutDemandeForm extends BaseForm{
                     
                     
                     //appelle methode ajouterReclamation mt3 service Reclamation bch nzido données ta3na fi base 
+                    
                     ServiceDemande.getInstance().ajoutDemande(r);
                     
                     iDialog.dispose(); //na7io loading ba3d ma3mlna ajout
